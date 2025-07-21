@@ -23,12 +23,12 @@ rownames(seq_table_nochim) <- x
 
 
 ## Create phyloseq object ====
-ps.All <- phyloseq(otu_table(seq_table_nochim, taxa_are_rows=FALSE), sample_data(sample_df), tax_table(tax_gg))
-saveRDS(ps.All, here::here("Output/03 - Phyloseq Preprocessing - Output/ps.All.rds"))
+ps.All_gg <- phyloseq(otu_table(seq_table_nochim, taxa_are_rows=FALSE), sample_data(sample_df), tax_table(tax_gg))
+saveRDS(ps.All_gg, here::here("Output/03 - Phyloseq Preprocessing - Output/ps.All_gg.rds"))
 
 ## Inspect phyloseq object ====
-ps.All # only 256 taxa somehow
+ps.All_gg # only 256 taxa somehow
 # Taxa distribution 
-summary(taxa_sums(ps.All@otu_table)) 
+summary(taxa_sums(ps.All_gg@otu_table)) 
 # Sample read distribution
-summary(sample_sums(ps.All@otu_table)) 
+summary(sample_sums(ps.All_gg@otu_table)) 
